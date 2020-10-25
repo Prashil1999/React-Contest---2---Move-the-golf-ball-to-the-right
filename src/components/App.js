@@ -33,9 +33,12 @@ class App extends Component {
   }
   keyHandle(event) {
     if (event.keyCode === 39) {
-      let pos = this.state.posi;
-      this.setState({ posi: pos + 5 });
-      this.setState({ ballPosition: { left: `${this.state.posi}px` } });
+      let stateCopy = this.state;
+      stateCopy.posi = this.state.posi + 5;
+      this.setState(stateCopy);
+      stateCopy = this.state;
+      stateCopy.ballPosition = { left: `${this.state.posi}px` };
+      this.setState(stateCopy);
     }
   }
   render() {
